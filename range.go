@@ -62,6 +62,27 @@ func (r Range) Equal(r1 Range) bool {
 	return r[0] == r1[0] && r[1] == r1[1]
 }
 
+// Intersection will return the intersection of the range this method is
+// bound to and the provided range.
+func (r Range) Intersection(r1 Range) Range {
+	low := r[0]
+	high := r[1]
+
+	if r1[0] > low {
+		low = r1[0]
+	}
+
+	if r1[1] < high {
+		high = r1[1]
+	}
+
+	if low >= high {
+		return Range{Hz(0), Hz(0)}
+	}
+
+	return Range{low, high}
+}
+
 // Center will return the center of a range (perhaps to get the center of a
 // channel to tune to).
 func (r Range) Center() Hz {
