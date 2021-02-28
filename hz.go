@@ -182,19 +182,19 @@ func parseHzFromParts(parts map[string]string) (Hz, error) {
 	var scale Hz = 0
 
 	switch parts["unit"] {
-	case "Hz":
+	case "Hz", "hz":
 		scale = Hz(1)
 		break
-	case "KHz":
+	case "KHz", "khz", "kHz":
 		scale = KHz
 		break
-	case "MHz":
+	case "MHz", "mhz":
 		scale = MHz
 		break
-	case "GHz":
+	case "GHz", "ghz":
 		scale = GHz
 		break
-	case "THz":
+	case "THz", "thz":
 		scale = THz
 		break
 	default:

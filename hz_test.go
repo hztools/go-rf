@@ -34,6 +34,19 @@ func TestHzParse(t *testing.T) {
 	assert.Equal(t, rf.Hz(144390000), frequency)
 }
 
+func TestHzParseCase(t *testing.T) {
+	for _, freq := range []string{
+		"10Hz", "10hz",
+		"100KHz", "10kHz", "10khz",
+		"100MHz", "100mhz",
+		"2.5GHz", "5ghz",
+		"10THz", "100thz",
+	} {
+		_, err := rf.ParseHz(freq)
+		assert.NoError(t, err)
+	}
+}
+
 func TestHzParseNeg(t *testing.T) {
 	frequency, err := rf.ParseHz("-10Hz")
 	assert.NoError(t, err)
