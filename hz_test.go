@@ -1,4 +1,4 @@
-// {{{ Copyright (c) Paul R. Tagliamonte <paul@kc3nwj.com>, 2021
+// {{{ Copyright (c) Paul R. Tagliamonte <paul@k3xec.com>, 2021
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -87,6 +87,9 @@ func TestFreqName(t *testing.T) {
 	frequency = rf.MustParseHz("1440.39MHz")
 	assert.Equal(t, "1.44039GHz", frequency.String())
 	assert.Equal(t, "-1.44039GHz", (-frequency).String())
+
+	frequency = rf.MustParseHz("10KHz")
+	assert.Equal(t, "10kHz", frequency.String())
 }
 
 func TestFreqMath(t *testing.T) {

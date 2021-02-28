@@ -1,4 +1,4 @@
-// {{{ Copyright (c) Paul R. Tagliamonte <paul@kc3nwj.com>, 2020
+// {{{ Copyright (c) Paul R. Tagliamonte <paul@k3xec.com>, 2020
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -45,13 +45,13 @@ func (h *Hz) UnmarshalJSON(data []byte) error {
 
 // MarshalJSON will convert the frequency in Hz to a string.
 // This can be used to transmit frequency data via JSON.
-func (h *Hz) MarshalJSON() ([]byte, error) {
+func (h Hz) MarshalJSON() ([]byte, error) {
 	return json.Marshal(h.String())
 }
 
 // MarshalYAML will convert the frequency in Hz to a string.
 // This can be used to transmit frequency data via YAML.
-func (h *Hz) MarshalYAML() (interface{}, error) {
+func (h Hz) MarshalYAML() (interface{}, error) {
 	return h.String(), nil
 }
 
@@ -111,7 +111,7 @@ func (h Hz) String() string {
 		sign = "-"
 	}
 
-	names := []string{"Hz", "KHz", "MHz", "GHz", "THz"}
+	names := []string{"Hz", "kHz", "MHz", "GHz", "THz"}
 
 	for frequency > fkhz {
 		frequency = frequency / fkhz
