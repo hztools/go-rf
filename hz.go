@@ -49,6 +49,26 @@ func (h *Hz) MarshalJSON() ([]byte, error) {
 	return json.Marshal(h.String())
 }
 
+// MarshalYAML will convert the frequency in Hz to a string.
+// This can be used to transmit frequency data via YAML.
+func (h *Hz) MarshalYAML() (interface{}, error) {
+	return h.String(), nil
+}
+
+// UnmarshalYAML will parse a string as a frequency, and convert it into
+// Hz. This can be used to transmit frequency data via YAML.
+func (h *Hz) UnmarshalYAML(unmarshal func(interface{}) error) error {
+	var (
+		err error
+		hz  string
+	)
+	if err := unmarshal(&hz); err != nil {
+		return err
+	}
+	*h, err = ParseHz(hz)
+	return err
+}
+
 var (
 	// KHz represents one kilohertz, or 1,000 Hz
 	KHz Hz = Hz(1e+3)
