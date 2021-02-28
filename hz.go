@@ -82,7 +82,14 @@ func (h Hz) String() string {
 		frequency float64 = float64(h)
 		fkhz      float64 = float64(KHz)
 		steps     uint    = 0
+		neg       bool    = h < 0
+		sign      string  = ""
 	)
+
+	if neg {
+		frequency = -frequency
+		sign = "-"
+	}
 
 	names := []string{"Hz", "KHz", "MHz", "GHz", "THz"}
 
@@ -92,7 +99,8 @@ func (h Hz) String() string {
 	}
 
 	return fmt.Sprintf(
-		"%s%s",
+		"%s%s%s",
+		sign,
 		strconv.FormatFloat(frequency, 'f', -1, 64),
 		names[steps],
 	)
@@ -135,6 +143,10 @@ func ParseHz(freq string) (Hz, error) {
 
 	values := r.FindStringSubmatch(freq)
 	keys := r.SubexpNames()
+
+	if len(values) != len(keys) {
+		return Hz(0), fmt.Errorf("rf: invalid frequency: %s", freq)
+	}
 
 	for i, key := range keys {
 		parts[key] = values[i]

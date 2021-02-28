@@ -21,7 +21,7 @@
 // Package rf contains go fundemental types and helpers to allow Go code to
 // easily manupulate RF related types.
 //
-// Additional types and helpers can be found in `kc3nwj.com/sdr` for dealing
+// Additional types and helpers can be found in `hz.tools/sdr` for dealing
 // with software defined radios.
 package rf
 

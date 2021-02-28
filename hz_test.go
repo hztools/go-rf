@@ -1,4 +1,4 @@
-// {{{ Copyright (c) Paul R. Tagliamonte <paul@kc3nwj.com>, 2020
+// {{{ Copyright (c) Paul R. Tagliamonte <paul@kc3nwj.com>, 2021
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -49,6 +49,14 @@ func TestHzParseNeg(t *testing.T) {
 
 	if frequency != rf.Hz(-10) {
 		t.Log("Frequency isn't being parsed correctly")
+		t.FailNow()
+	}
+}
+
+func TestHzParseEmpty(t *testing.T) {
+	_, err := rf.ParseHz("")
+	if err == nil {
+		t.Log("Failed to create an error whilst parsing an empty string")
 		t.FailNow()
 	}
 }
@@ -112,6 +120,11 @@ func TestFreqName(t *testing.T) {
 
 	if strings.Compare(frequency.String(), "1.44039GHz") != 0 {
 		t.Log("Stringification went very poorly")
+		t.FailNow()
+	}
+
+	if (-frequency).String() != "-1.44039GHz" {
+		t.Logf("Stringification broke on neg: %s", (-frequency))
 		t.FailNow()
 	}
 }
