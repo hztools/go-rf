@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"kc3nwj.com/rf"
+	"hz.tools/rf"
 )
 
 func TestHzParse(t *testing.T) {

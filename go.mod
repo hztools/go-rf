@@ -1,3 +1,3 @@
-module kc3nwj.com/rf
+module hz.tools/rf
 
 go 1.14
