@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE. }}}
 
-// Package rf contains go fundemental types and helpers to allow Go code to
+// Package rf contains go fundamental types and helpers to allow Go code to
 // easily manupulate RF related types.
 //
 // Additional types and helpers can be found in `hz.tools/sdr` for dealing
