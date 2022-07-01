@@ -92,6 +92,18 @@ func TestFreqName(t *testing.T) {
 	assert.Equal(t, "10kHz", frequency.String())
 }
 
+func FuzzParseHz(f *testing.F) {
+	f.Add("144.39MHz")
+	f.Add("145.39kHz")
+	f.Add("144Hz")
+	f.Add("10GHz")
+	f.Add("-1GHz")
+	f.Fuzz(func(t *testing.T, f string) {
+		// We want panics
+		rf.ParseHz(f)
+	})
+}
+
 func TestFreqMath(t *testing.T) {
 	frequency := rf.MustParseHz("144.39MHz")
 	r := rf.Range{-rf.KHz * 3, rf.KHz * 3}
