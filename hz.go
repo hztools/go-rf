@@ -179,24 +179,19 @@ func ParseHz(freq string) (Hz, error) {
 // time.Parse, this is a bit more maintainable for a single person. The
 // downsides in doing this are worth it for my very specific use-case.
 func parseHzFromParts(parts map[string]string) (Hz, error) {
-	var scale Hz = 0
+	var scale Hz
 
 	switch parts["unit"] {
 	case "Hz", "hz":
 		scale = Hz(1)
-		break
 	case "KHz", "khz", "kHz":
 		scale = KHz
-		break
 	case "MHz", "mhz":
 		scale = MHz
-		break
 	case "GHz", "ghz":
 		scale = GHz
-		break
 	case "THz", "thz":
 		scale = THz
-		break
 	default:
 		return Hz(0), fmt.Errorf("rf: unknown unit: %s", parts["unit"])
 	}

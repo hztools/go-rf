@@ -100,7 +100,7 @@ func FuzzParseHz(f *testing.F) {
 	f.Add("-1GHz")
 	f.Fuzz(func(t *testing.T, f string) {
 		// We want panics
-		rf.ParseHz(f)
+		_, _ = rf.ParseHz(f)
 	})
 }
 
