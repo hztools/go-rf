@@ -71,39 +71,39 @@ func (h *Hz) UnmarshalYAML(unmarshal func(interface{}) error) error {
 
 var (
 	// KHz represents one kilohertz, or 1,000 Hz
-	KHz Hz = Hz(1e+3)
+	KHz = Hz(1e+3)
 
 	// MHz represents one megahertz, or 1,000,000 Hz
-	MHz Hz = Hz(1e+6)
+	MHz = Hz(1e+6)
 
 	// GHz represents one gigahertz, or 1,000,000,000 Hz
-	GHz Hz = Hz(1e+9)
+	GHz = Hz(1e+9)
 
 	// THz represents one terrahertz, or 1,000,000,000,000 Hz
-	THz Hz = Hz(1e+12)
+	THz = Hz(1e+12)
 
 	// KHzBand represents the Kilohertz band, from 1KHz up to 1MHz.
-	KHzBand Allocation = Allocation{Name: "KHz", Range: Range{KHz, MHz - 1}}
+	KHzBand = Allocation{Name: "KHz", Range: Range{KHz, MHz - 1}}
 
 	// MHzBand represents the Megahertz band, from 1MHz up to 1GHz.
-	MHzBand Allocation = Allocation{Name: "MHz", Range: Range{MHz, GHz - 1}}
+	MHzBand = Allocation{Name: "MHz", Range: Range{MHz, GHz - 1}}
 
 	// GHzBand represents the Gigahertz band, from 1GHz up to 1THz.
-	GHzBand Allocation = Allocation{Name: "GHz", Range: Range{GHz, THz - 1}}
+	GHzBand = Allocation{Name: "GHz", Range: Range{GHz, THz - 1}}
 
 	// SIBands represents the Hz-based allocations (KHz, MHz, GHz)
-	SIBands Allocations = Allocations{KHzBand, MHzBand, GHzBand}
+	SIBands = Allocations{KHzBand, MHzBand, GHzBand}
 )
 
 // String will convert the frequency into a string, able to be re-parsed as
 // a frequency, or displayed to a user.
 func (h Hz) String() string {
 	var (
-		frequency float64 = float64(h)
-		fkhz      float64 = float64(KHz)
-		steps     uint    = 0
-		neg       bool    = h < 0
-		sign      string  = ""
+		frequency = float64(h)
+		fkhz      = float64(KHz)
+		steps     uint
+		neg       = h < 0
+		sign      = ""
 	)
 
 	if neg {

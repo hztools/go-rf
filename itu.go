@@ -20,63 +20,63 @@
 
 package rf
 
-var ituELF Hz = Hz(3)
-var ituSLF Hz = Hz(3e+1)
-var ituULF Hz = Hz(3e+2)
-var ituVLF Hz = Hz(3e+3)
-var ituLF Hz = Hz(3e+4)
-var ituMF Hz = Hz(3e+5)
-var ituHF Hz = Hz(3e+6)
-var ituVHF Hz = Hz(3e+7)
-var ituUHF Hz = Hz(3e+8)
-var ituSHF Hz = Hz(3e+9)
-var ituEHF Hz = Hz(3e+10)
-var ituTHF Hz = Hz(3e+11)
+var ituELF = Hz(3)
+var ituSLF = Hz(3e+1)
+var ituULF = Hz(3e+2)
+var ituVLF = Hz(3e+3)
+var ituLF = Hz(3e+4)
+var ituMF = Hz(3e+5)
+var ituHF = Hz(3e+6)
+var ituVHF = Hz(3e+7)
+var ituUHF = Hz(3e+8)
+var ituSHF = Hz(3e+9)
+var ituEHF = Hz(3e+10)
+var ituTHF = Hz(3e+11)
 
 var (
 	// ELFBand or Extremely Low Frequency, is a slice of RF space defined by the ITU
 	// as being between 3Hz and 30Hz
-	ELFBand Allocation = Allocation{Name: "ELF", Range: Range{ituELF, ituSLF - 1}}
+	ELFBand = Allocation{Name: "ELF", Range: Range{ituELF, ituSLF - 1}}
 
 	// SLFBand or Super Low Frequency, is a slice of RF space defined by the ITU
 	// as being between 30Hz and 300Hz
-	SLFBand Allocation = Allocation{Name: "SLF", Range: Range{ituSLF, ituULF - 1}}
+	SLFBand = Allocation{Name: "SLF", Range: Range{ituSLF, ituULF - 1}}
 
 	// ULFBand or Ultra Low Frequency, is a slice of RF space defined by the ITU
 	// as being between 300Hz and 3KHz
-	ULFBand Allocation = Allocation{Name: "ULF", Range: Range{ituULF, ituVLF - 1}}
+	ULFBand = Allocation{Name: "ULF", Range: Range{ituULF, ituVLF - 1}}
 
 	// VLFBand or Very Low Frequency, is a slice of RF space defined by the ITU
 	// as being between 3KHz and 30KHz
-	VLFBand Allocation = Allocation{Name: "VLF", Range: Range{ituVLF, ituLF - 1}}
+	VLFBand = Allocation{Name: "VLF", Range: Range{ituVLF, ituLF - 1}}
 
 	// LFBand or Low Frequency, is a slice of RF space defined by the ITU
 	// as being between 30KHz and 300KHz
-	LFBand Allocation = Allocation{Name: "LF", Range: Range{ituLF, ituMF - 1}}
+	LFBand = Allocation{Name: "LF", Range: Range{ituLF, ituMF - 1}}
 
 	// MFBand or Medium Frequency, is a slice of RF space defined by the ITU
 	// as being between 300KHz and 3MHz
-	MFBand Allocation = Allocation{Name: "MF", Range: Range{ituMF, ituHF - 1}}
+	MFBand = Allocation{Name: "MF", Range: Range{ituMF, ituHF - 1}}
 
 	// HFBand or High Frequency, is a slice of RF space defined by the ITU
 	// as being between 3MHz and 30MHz
-	HFBand Allocation = Allocation{Name: "HF", Range: Range{ituHF, ituVHF - 1}}
+	HFBand = Allocation{Name: "HF", Range: Range{ituHF, ituVHF - 1}}
 
 	// VHFBand or Very High Frequency, is a slice of RF space defined by the ITU
 	// as being between 30MHz and 300MHz
-	VHFBand Allocation = Allocation{Name: "VHF", Range: Range{ituVHF, ituUHF - 1}}
+	VHFBand = Allocation{Name: "VHF", Range: Range{ituVHF, ituUHF - 1}}
 
 	// UHFBand or Ultra High Frequency, is a slice of RF space defined by the ITU
 	// as being between 300MHz and 3GHz
-	UHFBand Allocation = Allocation{Name: "UHF", Range: Range{ituUHF, ituSHF - 1}}
+	UHFBand = Allocation{Name: "UHF", Range: Range{ituUHF, ituSHF - 1}}
 
 	// SHFBand or Super High Frequency, is a slice of RF space defined by the ITU
 	// as being between 3GHz and 30GHz
-	SHFBand Allocation = Allocation{Name: "SHF", Range: Range{ituSHF, ituEHF - 1}}
+	SHFBand = Allocation{Name: "SHF", Range: Range{ituSHF, ituEHF - 1}}
 
 	// EHFBand or Extremely High Frequency, is a slice of RF space defined by the ITU
 	// as being between 30GHz and 300GHz
-	EHFBand Allocation = Allocation{Name: "EHF", Range: Range{ituEHF, ituTHF - 1}}
+	EHFBand = Allocation{Name: "EHF", Range: Range{ituEHF, ituTHF - 1}}
 
 	// ITUBands represents all the ITU allocated RF bands.
 	//
